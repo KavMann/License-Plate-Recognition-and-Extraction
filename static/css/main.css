@@ -1,0 +1,341 @@
+@mixin glassmorphism() {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  padding: 40px 0;
+}
+
+.bg {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background-image: radial-gradient(
+      circle at 30% 86%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 8%,
+      transparent 8%,
+      transparent 92%
+    ),
+    radial-gradient(
+      circle at 55% 100%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 8%,
+      transparent 8%,
+      transparent 92%
+    ),
+    radial-gradient(
+      circle at 40% 75%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 7% 99%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 69% 76%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 2% 35%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 14% 48%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 28% 87%,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.04) 4%,
+      transparent 4%,
+      transparent 96%
+    ),
+    radial-gradient(
+      circle at 65% 14%,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.04) 4%,
+      transparent 4%,
+      transparent 96%
+    ),
+    radial-gradient(
+      circle at 51% 36%,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.04) 4%,
+      transparent 4%,
+      transparent 96%
+    ),
+    radial-gradient(
+      circle at 6% 93%,
+      rgba(255, 255, 255, 0.04) 0%,
+      rgba(255, 255, 255, 0.04) 4%,
+      transparent 4%,
+      transparent 96%
+    ),
+    linear-gradient(135deg, rgb(23, 233, 173), rgb(29, 24, 208));
+}
+
+.form-signin {
+  max-width: 700px;
+  width: 100%;
+  @include glassmorphism();
+  border-radius: 8px;
+  padding: 2rem;
+
+  h1 {
+    color: #fff;
+    @include glassmorphism();
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-floating {
+    input.form-control {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .form-control:focus {
+      border-color: #ced4da;
+      box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .btn {
+    @include glassmorphism();
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: none;
+    }
+  }
+}
+
+.form-signin {
+  background: rgba(255, 255, 255, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#imageContainer {
+  margin-bottom: 20px;
+}
+
+body.dark-mode {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+}
+
+body.dark-mode .form-signin {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode h1 {
+  color: #ffffff !important;
+}
+
+body.dark-mode .form-control {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+  border-color: #444 !important;
+}
+
+body.dark-mode .form-check-label {
+  color: #ccc !important;
+}
+
+body.dark-mode .alert {
+  background-color: #1f1f1f !important;
+  color: #fff !important;
+  border-color: #333 !important;
+}
+
+body.dark-mode .btn {
+  background-color: #444 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .bg {
+  background-image: radial-gradient(
+      circle at 30% 86%,
+      rgb(220, 20, 60, 0.03) 0%,
+      rgb(220, 20, 60, 0.03) 8%,
+      transparent 8%,
+      transparent 92%
+    ),
+    radial-gradient(
+      circle at 55% 100%,
+      rgb(220, 20, 60, 0.03) 0%,
+      rgb(220, 20, 60, 0.03) 8%,
+      transparent 8%,
+      transparent 92%
+    ),
+    radial-gradient(
+      circle at 40% 75%,
+      rgb(220, 20, 60, 0.03) 0%,
+      rgb(220, 20, 60, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 7% 99%,
+      rgb(220, 20, 60, 0.03) 0%,
+      rgb(220, 20, 60, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 69% 76%,
+      rgb(220, 20, 60, 0.03) 0%,
+      rgb(220, 20, 60, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 2% 35%,
+      rgb(220, 20, 60, 0.03) 0%,
+      rgb(220, 20, 60, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 14% 48%,
+      rgb(220, 20, 60, 0.03) 0%,
+      rgb(220, 20, 60, 0.03) 6%,
+      transparent 6%,
+      transparent 94%
+    ),
+    radial-gradient(
+      circle at 28% 87%,
+      rgb(220, 20, 60, 0.04) 0%,
+      rgb(220, 20, 60, 0.04) 4%,
+      transparent 4%,
+      transparent 96%
+    ),
+    radial-gradient(
+      circle at 65% 14%,
+      rgb(220, 20, 60, 0.04) 0%,
+      rgb(220, 20, 60, 0.04) 4%,
+      transparent 4%,
+      transparent 96%
+    ),
+    radial-gradient(
+      circle at 51% 36%,
+      rgb(220, 20, 60, 0.04) 0%,
+      rgb(220, 20, 60, 0.04) 4%,
+      transparent 4%,
+      transparent 96%
+    ),
+    radial-gradient(
+      circle at 6% 93%,
+      rgb(220, 20, 60, 0.04) 0%,
+      rgb(220, 20, 60, 0.04) 4%,
+      transparent 4%,
+      transparent 96%
+    ),
+    linear-gradient(135deg, #1a1a1a, #000000);
+}
+
+.dark-mode-btn {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1000;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #000;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode-btn:hover {
+  transform: scale(1.1);
+}
+
+body.dark-mode .dark-mode-btn {
+  color: #fff;
+}
+.dark-mode-btn i {
+  transition: transform 0.3s ease;
+}
+.dark-mode-btn:hover i {
+  transform: rotate(360deg);
+}
+
+body,
+.main-container,
+.card,
+.text,
+.btn,
+.mode-icon {
+  transition: background-color 0.4s ease, color 0.4s ease, filter 0.4s ease;
+}
+
+body,
+.main-container,
+.card,
+.text,
+.btn,
+.mode-icon,
+.bg {
+  transition: background-color 0.5s ease, color 0.5s ease, filter 0.5s ease;
+}
+
+/* Define transitions for the dark and light mode elements */
+body.light-mode,
+body.dark-mode {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.dark-mode .form-signin,
+body.light-mode .form-signin {
+  transition: background 0.5s ease, border-color 0.5s ease;
+}
+
+body.dark-mode .form-control,
+body.light-mode .form-control {
+  transition: background-color 0.5s ease, color 0.5s ease,
+    border-color 0.5s ease;
+}
+
+body.dark-mode .bg,
+body.light-mode .bg {
+  transition: background-image 0.5s ease;
+}
