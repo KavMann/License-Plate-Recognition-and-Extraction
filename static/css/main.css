@@ -19,6 +19,7 @@ body {
   justify-content: center;
   background-color: #f5f5f5;
   padding: 40px 0;
+  overflow: auto;
 }
 
 .bg {
@@ -115,6 +116,7 @@ body {
   @include glassmorphism();
   border-radius: 8px;
   padding: 2rem;
+  margin: auto;
 
   h1 {
     color: #fff;
@@ -338,4 +340,31 @@ body.light-mode .form-control {
 body.dark-mode .bg,
 body.light-mode .bg {
   transition: background-image 0.5s ease;
+}
+
+.blend-image {
+  max-height: 300px;
+  mix-blend-mode: luminosity; /* For light mode */
+}
+
+/* Dark mode blend */
+body.dark-mode .blend-image {
+  mix-blend-mode: screen;
+}
+
+.blend-image.small {
+  height: 150px; /* or whatever smaller size you want */
+  transition: height 0.4s ease;
+}
+
+/* Smooth fade-in effect */
+.fade-in {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: scale(1);
 }
