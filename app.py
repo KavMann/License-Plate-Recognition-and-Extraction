@@ -5,11 +5,14 @@ import requests
 import cv2
 import pytesseract
 import re
+from dotenv import load_dotenv
 from ultralytics import YOLO
-import matplotlib.pyplot as plt
 
-# Set Tesseract path
-pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+load_dotenv()
+
+TESSERACT_CMD = os.getenv("TESSERACT_CMD")
+if TESSERACT_CMD:
+    pytesseract.pytesseract.tesseract_cmd = TESSERACT_CMD
 
 app = Flask(__name__)
 UPLOAD_FOLDER = 'uploads'
@@ -17,8 +20,8 @@ OUTPUT_FOLDER = 'outputs'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
-# Load YOLOv11 model
-model = YOLO("yolov11_roboflow_plate/plate_detector/weights/best.pt")
+MODEL_PATH = os.getenv("MODEL_PATH", "yolov11_plate/plate_detector/weights/best.pt")
+model = YOLO(MODEL_PATH)
 
 # Plate number formatter
 def format_plate_number(raw_text):

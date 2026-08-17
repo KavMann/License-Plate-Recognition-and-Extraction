@@ -1,10 +1,16 @@
 from roboflow import Roboflow
 from ultralytics import YOLO
+from dotenv import load_dotenv
 import os
 
+load_dotenv()
+
 def main():
-    # Initialize Roboflow with your API key
-    rf = Roboflow(api_key="TorpbqiaFqXHWjftu9B2")
+    api_key = os.getenv("ROBOFLOW_API_KEY")
+    if not api_key:
+        raise RuntimeError("Set ROBOFLOW_API_KEY before downloading the dataset.")
+
+    rf = Roboflow(api_key=api_key)
 
     # Download dataset
     project = rf.workspace("roboflow-universe-projects").project("license-plate-recognition-rxg4e")
@@ -21,14 +27,14 @@ def main():
         imgsz=630,
         batch=8,workers=0,
         device=0,
-        project='yolov11_roboflow_plate',
+        project='yolov11_plate',
         name='plate_detector',
         exist_ok=True,
         val=True,
         save=True
     )
 # Save the model
-    model.save("yolo11_roboflow_plate.pt")
+    model.save("yolo11_plate.pt")
     
 if __name__ == "__main__":
     import multiprocessing

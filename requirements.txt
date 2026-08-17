@@ -1,0 +1,8 @@
+flask
+requests
+opencv-python
+pytesseract
+ultralytics
+roboflow
+python-dotenv
+matplotlib
